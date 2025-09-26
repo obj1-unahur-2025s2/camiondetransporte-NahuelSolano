@@ -3,7 +3,28 @@ import cosas.*
 describe "group of test for cosas" {
 
   test "first test" {
-    assert.that(true)
+    bateria.cargado()
+    assert.equals(300, bateria.peso())
+  }
+  test "ladrillos" {
+    paqueteLadrillos.cantidadDeLadrillos(50)
+    assert.equals(100, paqueteLadrillos.peso())
+  }
+
+  test "contenedor" {
+    
+    bateria.cargado()
+    contenedor.meterObjeto(bateria)
+    contenedor.meterObjeto(bumblebee)
+    contenedor.pesoListaObjetos()
+    assert.equals(1200, contenedor.peso())
+  }
+
+  test "embalaje" {
+    residuos.cambiarPeso(30)
+
+    embalaje.objectoEmbalado(residuos)
+    assert.equals(30, embalaje.peso())
   }
 
 }
