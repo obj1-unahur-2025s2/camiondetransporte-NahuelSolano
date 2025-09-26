@@ -1,9 +1,56 @@
+import cosas.*
 import camion.*
 
 describe "group of test for camion" {
+  method initialize(){
+    bumblebee.transformarEnRobot()
+    camion.cargarObjeto(bumblebee)
+    arena.pesoArena(150)
+    camion.cargarObjeto(arena)
+    bateria.cargado()
+    camion.cargarObjeto(bateria)
+    paqueteLadrillos.cantidadDeLadrillos(80)
+    embalaje.objectoEmbalado(paqueteLadrillos)
+    camion.cargarObjeto(embalaje)
+    camion.pesoListaObjetosDelCamion()
+  }
 
   test "first test" {
-    assert.that(true)
+    assert.that(camion.todosLosPesosSonPares())}
+
+  test "a"{
+    assert.that(camion.hayObjetoQuePeseMasDe(800))
+  }
+
+  test "asdas"{
+    assert.equals(bumblebee, camion.objetoConNivelDePeligrosidad(30))
+  }
+
+  test "asdasdasd"{
+    assert.equals([bumblebee, bateria], camion.objetosConPeligrosidadMayorA(30))
+  }
+
+  test "asfdasf"{
+    assert.equals([bateria], camion.objetosConPeligrosidadMayorAlObjeto(bumblebee))
+  }
+
+  test "peso"{
+    assert.that(camion.noSuperaElPesoMaximo())
+  }
+  test "asdafasfa"{
+    assert.that(camion.noSuperaElNivelMaximoDePeligrosidad(101))
+  }
+
+  test "adsfjmasf"{
+    assert.that(camion.puedeCircularEnUnaRutaConPeligrosidad(101))
+  }
+
+  test "asdasd" {
+    assert.that(camion.cosaConPesoEntre(150, 50))
+  }
+
+  test "afnosfn" {
+    assert.equals(bumblebee, camion.cosaMasPesada())
   }
 
 }
